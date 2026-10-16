@@ -2,7 +2,7 @@ package entidades;
 
 import java.time.LocalDate;
 
-public class Cancion {
+public class Cancion extends Entidad {
     private String nombre;
     private Artista artista;
     private LocalDate anioLanzamiento;

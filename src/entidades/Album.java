@@ -3,7 +3,7 @@ package entidades;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Album {
+public class Album extends Entidad {
     private String nombre;
     private String genero;
 
