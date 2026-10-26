@@ -7,9 +7,9 @@ import java.util.function.Function;
 
 public class AlgoritmosBusqueda {
     public static int linearSearch(List<Entidad> lista, Function<Entidad, Object> getter) {
-
+        throw new UnsupportedOperationException("No implementado");
     }
     public static int binarySearch(List<Entidad> lista, Function<Entidad, Object> getter) {
-
+        throw new UnsupportedOperationException("No implementado");
     }
 }

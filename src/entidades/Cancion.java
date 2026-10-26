@@ -10,6 +10,25 @@ public class Cancion extends Entidad {
     private Album album;
     private int segundos;
 
+    public Cancion(String nombre, Artista artista, LocalDate anioLanzamiento, String genero, Album album, int segundos) {
+        this.nombre = nombre;
+        this.artista = artista;
+        this.anioLanzamiento = anioLanzamiento;
+        this.genero = genero;
+        this.album = album;
+        this.segundos = segundos;
+    }
+
+    // TODO cambiar esto
+    @Override
+    public String toString() {
+        return "Cancion ["+nombre+"]";
+    }
+
+    public Cancion(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getNombre() {
         return nombre;
     }

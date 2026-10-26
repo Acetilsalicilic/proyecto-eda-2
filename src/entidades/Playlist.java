@@ -14,7 +14,10 @@ public class Playlist {
 
     /* Métodos importantes */
     public int getDuracionTotal() {
-
+        int ans = 0;
+        for (var c : canciones)
+            ans += c.getSegundos();
+        return ans;
     }
 
     public void anadirCancion(Cancion cancion) {
