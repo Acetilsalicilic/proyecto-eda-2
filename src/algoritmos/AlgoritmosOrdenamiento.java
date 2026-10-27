@@ -2,6 +2,8 @@ package algoritmos;
 
 import entidades.Entidad;
 import java.util.*;
+import java.util.function.Function;
+
 import static java.util.Collections.swap;
 
 public class AlgoritmosOrdenamiento {
