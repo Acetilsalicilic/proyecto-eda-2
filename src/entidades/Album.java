@@ -11,6 +11,15 @@ public class Album extends Entidad {
     LocalDate anioLanzamiento;
     List<Cancion> canciones;
 
+    /* Metodos importantes */
+    int getDuracionTotal() {
+        int ans = 0;
+        for (var c : canciones)
+            ans += c.getSegundos();
+        return ans;
+    }
+
+    /* Getters y Setters */
     public String getNombre() {
         return nombre;
     }
