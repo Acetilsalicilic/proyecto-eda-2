@@ -1,12 +1,7 @@
 package algoritmos;
 
-import entidades.Cancion;
 import entidades.Entidad;
-
-import java.time.chrono.ChronoLocalDate;
 import java.util.*;
-import java.util.function.Function;
-
 import static java.util.Collections.swap;
 
 public class AlgoritmosOrdenamiento {
@@ -42,16 +37,14 @@ public class AlgoritmosOrdenamiento {
     /**
      *  Implementa la separación en sublistas utilizado en Merge Sort.
      *
-     * @param lista
-     * @param cmp
+     * @param lista La lista a ordenar
+     * @param cmp Comparador específico
      * @param i indice inicio. Inclusivo
      * @param j indice final. Exclusivo
      * @param <T> Subtipo de Entidad
      */
     private static <T extends Entidad> void particionar(List<T> lista, Comparator<T> cmp, int i, int j) {
         if (i >= j - 1) return;
-
-        System.out.println("Particionando ["+i+", "+j+"]");
 
         int mid = i + (j - i)/2;
         particionar(lista, cmp, i, mid);
@@ -80,8 +73,5 @@ public class AlgoritmosOrdenamiento {
 
         for (int a = i; a < k; a++)
             lista.set(a, queue.poll());
-
-        System.out.printf("Después de merge [%d, %d, %d]: ", i, j, k);
-        System.out.println(lista.subList(i, k));
     }
 }
