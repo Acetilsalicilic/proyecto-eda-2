@@ -19,10 +19,16 @@ public class Cancion extends Entidad {
         this.segundos = segundos;
     }
 
-    // TODO cambiar esto
     @Override
     public String toString() {
-        return "Cancion ["+nombre+"]";
+        return "Cancion{" +
+                "nombre='" + nombre + '\'' +
+                ", artista=" + artista +
+                ", anioLanzamiento=" + anioLanzamiento +
+                ", genero='" + genero + '\'' +
+                ", album=" + album +
+                ", segundos=" + segundos +
+                '}';
     }
 
     public Cancion(String nombre) {

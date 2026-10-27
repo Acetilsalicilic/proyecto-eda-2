@@ -1,7 +1,10 @@
 package entidades;
 
-import java.util.LinkedList;
-import java.util.List;
+import algoritmos.AlgoritmosBusqueda;
+import algoritmos.AlgoritmosOrdenamiento;
+
+import javax.swing.text.html.Option;
+import java.util.*;
 
 public class Playlist {
     private String nombre;
@@ -25,7 +28,40 @@ public class Playlist {
     }
 
     public void borrarCancion(Cancion cancion) {
+        canciones.remove(cancion);
+    }
 
+    public void ordenarPorNombre() {
+        AlgoritmosOrdenamiento.heapSort(canciones,
+                Comparator.comparing(Cancion::getAnioLanzamiento)
+        );
+    }
+
+    public void ordenarPorFecha() {
+        AlgoritmosOrdenamiento.mergeSort(canciones,
+                Comparator.comparing(Cancion::getAnioLanzamiento)
+        );
+    }
+
+    public void ordenarPorDuracion() {
+        AlgoritmosOrdenamiento.heapSort(canciones,
+                Comparator.comparing(Cancion::getSegundos)
+        );
+    }
+
+    public Optional<Cancion> buscarPorNombre(String nombre) {
+        List<Cancion> copia = new ArrayList<>(canciones);
+        AlgoritmosOrdenamiento.heapSort(copia, Comparator.comparing(Cancion::getNombre));
+
+        int ind = AlgoritmosBusqueda.binarySearch(copia, c -> c.getNombre().compareToIgnoreCase(nombre));
+
+        if (ind == -1)
+            return Optional.empty();
+        return Optional.of(canciones.get(ind));
+    }
+
+    public List<Cancion> buscarPorArtista(Artista artista) {
+        return AlgoritmosBusqueda.linearFilter(canciones, c -> c.getArtista() == artista);
     }
 
     /* Getters y Setters */
