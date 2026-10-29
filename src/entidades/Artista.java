@@ -4,12 +4,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Artista extends Entidad {
+    private static int ultimoId = 1;
     private String nombre;
     private LocalDate fechaNacimiento;
     private String tipoArtista;
 
-    public Artista(int id, String nombre, LocalDate fechaNacimiento, String tipoArtista) {
-        this.id = id;
+    public Artista(String nombre, LocalDate fechaNacimiento, String tipoArtista) {
+        this.id = ultimoId++;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.tipoArtista = tipoArtista;

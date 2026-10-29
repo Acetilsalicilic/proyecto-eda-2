@@ -1,5 +1,9 @@
+import servicios.GestorMusical;
+
 public class Principal {
-    static void main() {
-        throw new IllegalStateException("No implementado");
+    public static void main(String... args) {
+        servicios.GestorMusical gestor = GestorMusical.instance;
+        ui.CLI cli = new ui.CLI(gestor);
+        cli.iniciar();
     }
 }

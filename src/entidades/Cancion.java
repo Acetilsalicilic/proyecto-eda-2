@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public class Cancion extends Entidad {
+    private static int ultimoId = 1;
     private String nombre;
     private Artista artista;
     private LocalDate anioLanzamiento;
@@ -11,7 +12,7 @@ public class Cancion extends Entidad {
     private Album album;
     private int segundos;
 
-    public Cancion(int id, String nombre, Artista artista, LocalDate anioLanzamiento, String genero, Album album, int segundos) {
+    public Cancion(String nombre, Artista artista, LocalDate anioLanzamiento, String genero, Album album, int segundos) {
         this.nombre = nombre;
         this.artista = artista;
         this.anioLanzamiento = anioLanzamiento;
@@ -19,7 +20,7 @@ public class Cancion extends Entidad {
         this.album = album;
         this.segundos = segundos;
 
-        this.id = id;
+        this.id = ultimoId++;
     }
 
     @Override
@@ -40,10 +41,6 @@ public class Cancion extends Entidad {
         if (!(obj instanceof Cancion c))
             return false;
         return c.getId() == this.id;
-    }
-
-    public Cancion(String nombre) {
-        this(0, nombre, null, null, null, null, 0);
     }
 
     public String getNombre() {

@@ -5,14 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Album extends Entidad {
+    private static int ultimoId = 1;
     private String nombre;
     private String genero;
 
     LocalDate anioLanzamiento;
     List<Cancion> canciones;
 
-    public Album(int id, String nombre, String genero, LocalDate anioLanzamiento) {
-        this.id = id;
+    public Album(String nombre, String genero, LocalDate anioLanzamiento) {
+        this.id = ultimoId++;
         this.nombre = nombre;
         this.genero = genero;
         this.anioLanzamiento = anioLanzamiento;
