@@ -76,4 +76,11 @@ public class AlgoritmosOrdenamiento {
         for (int a = i; a < k; a++)
             lista.set(a, queue.poll());
     }
+    public static <T extends Entidad> boolean estaOrdenada(List<T> lista, Comparator<T> cmp) {
+        for (int i=0; i<lista.size() - 1; i++) {
+            if (cmp.compare(lista.get(i), lista.get(i+1)) > 0)
+                return false;
+        }
+        return true;
+    }
 }
