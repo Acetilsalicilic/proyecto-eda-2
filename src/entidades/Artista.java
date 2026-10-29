@@ -1,13 +1,14 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Artista extends Entidad {
     private String nombre;
-    private LocalDateTime fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String tipoArtista;
 
-    public Artista(int id, String nombre, LocalDateTime fechaNacimiento, String tipoArtista) {
+    public Artista(int id, String nombre, LocalDate fechaNacimiento, String tipoArtista) {
         this.id = id;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
@@ -22,11 +23,11 @@ public class Artista extends Entidad {
         this.nombre = nombre;
     }
 
-    public LocalDateTime getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

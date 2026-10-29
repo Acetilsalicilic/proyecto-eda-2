@@ -21,7 +21,7 @@ public class Album extends Entidad {
     }
 
     /* Metodos importantes */
-    int getDuracionTotal() {
+    public int getDuracionTotal() {
         int ans = 0;
         for (var c : canciones)
             ans += c.getSegundos();

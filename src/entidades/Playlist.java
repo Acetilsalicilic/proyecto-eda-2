@@ -26,13 +26,18 @@ public class Playlist {
         return ans;
     }
 
-    // TODO incluir agregar la canción al set
     public void anadirCancion(Cancion cancion) {
+        if (cancion == null) return;
+        if (conjunto_canciones.contieneCancion(cancion)) return;
+        conjunto_canciones.agregarCancion(cancion);
         canciones.add(cancion);
     }
 
-    // TODO agregar eliminar la canción del set
     public void borrarCancion(Cancion cancion) {
+        if (cancion == null) return;
+        if (conjunto_canciones.contieneCancion(cancion)) {
+            conjunto_canciones.eliminarCancion(cancion);
+        }
         canciones.remove(cancion);
     }
 
