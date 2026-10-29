@@ -2,6 +2,7 @@ package entidades;
 
 import algoritmos.AlgoritmosBusqueda;
 import algoritmos.AlgoritmosOrdenamiento;
+import contenedores.SetCanciones;
 
 import javax.swing.text.html.Option;
 import java.util.*;
@@ -9,10 +10,12 @@ import java.util.*;
 public class Playlist {
     private String nombre;
     private List<Cancion> canciones;
+    private SetCanciones conjunto_canciones;
 
     public Playlist(String nombre) {
         this.nombre = nombre;
         this.canciones = new LinkedList<>();
+        this.conjunto_canciones = new SetCanciones(10);
     }
 
     /* Métodos importantes */
@@ -23,45 +26,18 @@ public class Playlist {
         return ans;
     }
 
+    // TODO incluir agregar la canción al set
     public void anadirCancion(Cancion cancion) {
         canciones.add(cancion);
     }
 
+    // TODO agregar eliminar la canción del set
     public void borrarCancion(Cancion cancion) {
         canciones.remove(cancion);
     }
 
-    public void ordenarPorNombre() {
-        AlgoritmosOrdenamiento.heapSort(canciones,
-                Comparator.comparing(Cancion::getAnioLanzamiento)
-        );
-    }
-
-    public void ordenarPorFecha() {
-        AlgoritmosOrdenamiento.mergeSort(canciones,
-                Comparator.comparing(Cancion::getAnioLanzamiento)
-        );
-    }
-
-    public void ordenarPorDuracion() {
-        AlgoritmosOrdenamiento.heapSort(canciones,
-                Comparator.comparing(Cancion::getSegundos)
-        );
-    }
-
-    public Optional<Cancion> buscarPorNombre(String nombre) {
-        List<Cancion> copia = new ArrayList<>(canciones);
-        AlgoritmosOrdenamiento.heapSort(copia, Comparator.comparing(Cancion::getNombre));
-
-        int ind = AlgoritmosBusqueda.binarySearch(copia, c -> c.getNombre().compareToIgnoreCase(nombre));
-
-        if (ind == -1)
-            return Optional.empty();
-        return Optional.of(canciones.get(ind));
-    }
-
-    public List<Cancion> buscarPorArtista(Artista artista) {
-        return AlgoritmosBusqueda.linearFilter(canciones, c -> c.getArtista() == artista);
+    public boolean contieneCancion(Cancion cancion) {
+        return conjunto_canciones.contieneCancion(cancion);
     }
 
     /* Getters y Setters */

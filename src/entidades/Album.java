@@ -1,15 +1,24 @@
 package entidades;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Album extends Entidad {
     private String nombre;
     private String genero;
 
-    private Album album;
     LocalDate anioLanzamiento;
     List<Cancion> canciones;
+
+    public Album(int id, String nombre, String genero, LocalDate anioLanzamiento) {
+        this.id = id;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.anioLanzamiento = anioLanzamiento;
+
+        canciones = new ArrayList<>();
+    }
 
     /* Metodos importantes */
     int getDuracionTotal() {
@@ -34,14 +43,6 @@ public class Album extends Entidad {
 
     public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
     }
 
     public LocalDate getAnioLanzamiento() {

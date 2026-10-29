@@ -7,6 +7,13 @@ public class Artista extends Entidad {
     private LocalDateTime fechaNacimiento;
     private String tipoArtista;
 
+    public Artista(int id, String nombre, LocalDateTime fechaNacimiento, String tipoArtista) {
+        this.id = id;
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+        this.tipoArtista = tipoArtista;
+    }
+
     public String getNombre() {
         return nombre;
     }

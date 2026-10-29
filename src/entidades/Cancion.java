@@ -1,6 +1,7 @@
 package entidades;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Cancion extends Entidad {
     private String nombre;
@@ -10,18 +11,21 @@ public class Cancion extends Entidad {
     private Album album;
     private int segundos;
 
-    public Cancion(String nombre, Artista artista, LocalDate anioLanzamiento, String genero, Album album, int segundos) {
+    public Cancion(int id, String nombre, Artista artista, LocalDate anioLanzamiento, String genero, Album album, int segundos) {
         this.nombre = nombre;
         this.artista = artista;
         this.anioLanzamiento = anioLanzamiento;
         this.genero = genero;
         this.album = album;
         this.segundos = segundos;
+
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "Cancion{" +
+                "id='"+id+'\'' +
                 "nombre='" + nombre + '\'' +
                 ", artista=" + artista +
                 ", anioLanzamiento=" + anioLanzamiento +
@@ -31,8 +35,15 @@ public class Cancion extends Entidad {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Cancion c))
+            return false;
+        return c.getId() == this.id;
+    }
+
     public Cancion(String nombre) {
-        this.nombre = nombre;
+        this(0, nombre, null, null, null, null, 0);
     }
 
     public String getNombre() {
